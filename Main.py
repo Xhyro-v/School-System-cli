@@ -9,7 +9,7 @@ DATA_PATH = os.path.join(DATA_DIR, "Students.json")
 os.makedirs(DATA_DIR, exist_ok = True)
 
 print(Center.box(""))
-TM = input("Test add: ")
+TM = input("Menu selection: ")
 if TM == "1":
       SDE = StudentDataEditor(DATA_PATH)
       name = Input.letter("nama: ").capitalize()
