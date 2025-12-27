@@ -45,20 +45,6 @@ Input validation
 Editing and deleting student data
 Average score and ranking calculation
 Better CLI navigation and UX
+
 Author
 Naufal Azhar
-Salin kode
-
----
-
-### Kenapa README ini **aman buat GitHub**
-- Nggak overclaim
-- Fokus ke **apa yang ada sekarang**
-- Bahasa developer pelajar asli
-- Cocok buat repo publik & portfolio awal
-
-Kalau lu mau next:
-- versi **lebih profesional (buat beasiswa / CV)**
-- atau README **lebih singkat tapi tajam**
-
-tinggal bilang, bro. Repo lu arahnya udah bener 🔥
