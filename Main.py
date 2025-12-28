@@ -19,3 +19,24 @@ if TM == "1":
       grade = Input.number("kelas: ").strip()
       subgrade = Input.letter(f"{grade} ruang: \n")
       SDE.add(grade, subgrade , name, age, gender, nisn)
+      
+elif TM == "2":
+          SS = StudentScoreEditor.SelectSubject
+          IS = StudentScoreEditor.InputScores
+          R  = StudentScoreEditor.Report
+      
+          nisn = Input.number("Masukkan NISN siswa: ").strip()
+          subject = SS(daftar)
+          NH, PTS, PAS = IS()
+          Final = R(NH, PTS, PAS)
+      
+          SSE = StudentScoreEditor(DATA_PATH1)
+          SSE.AddSubjectScore(nisn, subject, NH, PTS, PAS, Final)
+      
+          print(Final)
+          print(Color.Green(Center.text(
+              f"Nilai {subject} berhasil disimpan"
+          )))
+elif TM == "0":
+          print(Color.Blue(Center.text("Program dimatikan")))
+          break
