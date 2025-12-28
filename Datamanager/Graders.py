@@ -35,8 +35,8 @@ class StudentScoreEditor(BaseManager):
         PAS = float(input("Masukan nilai PAS: "))
         return NH, PTS, PAS
 #Still have a issues here
-    def AddSubjectScore(self, nisn, subject, nh, pts, pas, final):
-        nisn = str(nisn)
+    def AddSubjectScore(self, NISN, subject, NH, PTS, PAS, Final):
+        NISN = str(NISN)
         if os.path.exists(self.filepath):
             with open(self.filepath, "r") as f:
                 self.db = json.load(f)
@@ -46,10 +46,10 @@ class StudentScoreEditor(BaseManager):
     
         self.db["StudentScore"].setdefault(nisn, {})
         self.db["StudentScore"][nisn][subject] = {
-            "NH": nh,
-            "PTS": pts,
-            "PAS": pas,
-            "Final": final
+            "NH": NH,
+            "PTS": PTS,
+            "PAS": PAS,
+            "Final": Final
         }
     
         self.save()
