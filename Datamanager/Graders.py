@@ -1,7 +1,7 @@
 from Utility.Utility import Input, Color, Center, Backcol, Font
 from Datamanager.DataEditor import BaseManager
 import json, os
-
+#There are some issues with this file that are causing the data not to go into the destination data file, I am working on it.
 class StudentScoreEditor(BaseManager):
 
     def __init__(self, filepath):
@@ -34,7 +34,6 @@ class StudentScoreEditor(BaseManager):
         PTS = float(input("Masukan nilai PTS: "))
         PAS = float(input("Masukan nilai PAS: "))
         return NH, PTS, PAS
-#Still have a issues here
     def AddSubjectScore(self, NISN, subject, NH, PTS, PAS, Final):
         NISN = str(NISN)
         if os.path.exists(self.filepath):
