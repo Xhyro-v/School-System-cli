@@ -11,7 +11,7 @@ DATA_PATH1 = os.path.join(DATA_DIR, "StudentsScore.json")
 
 os.makedirs(DATA_DIR, exist_ok=True)
 #==============================================
-
+#There are some issues that prevent the data from being created and not going into the json data file, I am working on it
 class BaseManager:
     def __init__(self, filepath):
         self.filepath = filepath
