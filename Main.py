@@ -39,4 +39,3 @@ elif TM == "2":
           )))
 elif TM == "0":
           print(Color.Blue(Center.text("Program dimatikan")))
-          break
