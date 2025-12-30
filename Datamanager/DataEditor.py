@@ -1,17 +1,7 @@
 import json, os
-from Utility.Utility import Color, Backcol, Font, Input, Center
+from Utility.Utility import Color, Center
 
 
-# ================= PATH =================
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "Datacenter")
-
-DATA_PATH = os.path.join(DATA_DIR, "Students.json")
-DATA_PATH1 = os.path.join(DATA_DIR, "StudentsScore.json")
-
-os.makedirs(DATA_DIR, exist_ok=True)
-#==============================================
-#There are some issues that prevent the data from being created and not going into the json data file, I am working on it
 class BaseManager:
     def __init__(self, filepath):
         self.filepath = filepath
@@ -21,12 +11,10 @@ class BaseManager:
                 self.db = json.load(f)
         else:
             self.db = {}
-            self.save()
 
     def save(self):
         with open(self.filepath, "w") as f:
             json.dump(self.db, f, indent=4)
-
 
 
 class StudentDataEditor(BaseManager):
@@ -39,19 +27,19 @@ class StudentDataEditor(BaseManager):
                 "8": {},
                 "9": {}
             }
-            self.save()
 
     def add(self, Grade, Subgrade, Name, Age, Gender, NISN):
-        grade = str(Grade)
-        subclass = Subgrade.upper()
+        Grade = str(Grade)
+        Subgrade = Subgrade.upper()
+        NISN = str(NISN)
 
-        self.db["Student"].setdefault(grade, {})
-        self.db["Student"][grade].setdefault(subclass, {})
+        self.db["Student"].setdefault(Grade, {})
+        self.db["Student"][Grade].setdefault(Subgrade, {})
 
-        kelas = self.db["Student"][grade][subclass]
+        kelas = self.db["Student"][Grade][Subgrade]
 
-        new_absen = max(
-            [value["Absen"] for value in kelas.values()],
+        absen = max(
+            [v["Absen"] for v in kelas.values()],
             default=0
         ) + 1
 
@@ -59,38 +47,10 @@ class StudentDataEditor(BaseManager):
             "Nama": Name,
             "Umur": Age,
             "Jenis kelamin": Gender,
-            "Absen": new_absen
+            "Absen": absen
         }
 
         self.save()
-
-
-        if os.path.exists(DATA_PATH1):
-            with open(DATA_PATH1, "r") as f:
-                nilai = json.load(f)
-        else:
-            nilai = {"StudentScore": {}}
-
-        nilai.setdefault("StudentScore", {})
-
-        if NISN not in nilai["StudentScore"]:
-            nilai["StudentScore"][NISN] = {
-                "Matematika": {},
-                "Bahasa Indonesia": {},
-                "Bahasa Inggris": {},
-                "IPS": {},
-                "IPA": {},
-                "Informatika": {},
-                "Pendidikan agama": {},
-                "PPKN": {},
-                "PJOK": {},
-                "Seni budaya": {},
-                "Muatan lokal": {}
-            }
-
-        with open(DATA_PATH1, "w") as f:
-            json.dump(nilai, f, indent=4)
-
 
         if Gender == "Laki laki":
             print(Color.Green(
