@@ -1,6 +1,5 @@
 from Datamanager.DataEditor import BaseManager
 
-
 class StudentScoreEditor(BaseManager):
 
     def __init__(self, filepath):
@@ -34,11 +33,25 @@ class StudentScoreEditor(BaseManager):
             print("NISN tidak terdaftar, tambahkan siswa terlebih dahulu")
             return
 
+        if Final >= 90:
+            Final = f"{Final} - (A)"
+        elif Final >= 80:
+            Final = f"{Final} - (B+)"
+        elif Final >= 75:
+            Final = f"{Final} - (B-)"
+        elif Final >= 70:
+            Final = f"{Final} - (C+)"
+        elif Final >= 60:
+            Final = f"{Final} - (C-)"
+        else:
+            Final = f"{Final} - (D)"
+
+
         self.db["StudentScore"][NISN][subject] = {
-            "NH": NH,
-            "PTS": PTS,
-            "PAS": PAS,
-            "Final": Final
+            "Nilai harian": NH,
+            "Penilaian tengah semester(PTS)": PTS,
+            "Penilian akhir semester(PAS)": PAS,
+            "Rata-rata nilai akhir": Final
         }
 
         self.save()
