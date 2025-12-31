@@ -52,17 +52,6 @@ class StudentDataEditor(BaseManager):
 
         self.save()
 
-        if Gender == "Laki laki":
-            print(Color.Green(
-                Center.text(
-                    f"Siswa bernama {Name} berhasil dimasukan ke kelas {subclass} dengan NISN {NISN}"
-                )
-            ))
-        elif Gender == "Perempuan":
-            print(Color.Green(
-                Center.text(
-                    f"Siswi bernama {Name} berhasil dimasukan ke kelas {subclass} dengan NISN {NISN}"
-                )
-            ))
-        else:
-            print(Color.Red(Center.text("Field error / Something wrong")))
+        print(Color.Green(
+            Center.text(f"{Name} berhasil ditambahkan dengan NISN {NISN}")
+        ))
