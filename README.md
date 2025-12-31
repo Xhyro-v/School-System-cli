@@ -46,5 +46,7 @@ Editing and deleting student data
 Average score and ranking calculation
 Better CLI navigation and UX
 
+Update how to use it and description every 5 days
+
 Author
 Naufal Azhar
