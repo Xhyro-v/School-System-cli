@@ -46,6 +46,45 @@ class StudentScoreEditor(BaseManager):
         else:
             Final = f"{Final} - (D)"
 
+        if NH >= 90:
+            NH = f"{NH} - (A)"
+        elif Final >= 80:
+            NH = f"{NH} - (B+)"
+        elif Final >= 75:
+            NH = f"{NH} - (B-)"
+        elif NH >= 70:
+            NH = f"{NH} - (C+)"
+        elif NH >= 60:
+            NH = f"{NH} - (C-)"
+        else:
+            NH = f"{NH} - (D)"
+
+        if PTS >= 90:
+            PTS = f"{PTS} - (A)"
+        elif PTS >= 80:
+            PTS = f"{PTS} - (B+)"
+        elif PTS >= 75:
+            PTS = f"{PTS} - (B-)"
+        elif PTS >= 70:
+            PTS = f"{PTS} - (C+)"
+        elif PTS >= 60:
+            PTS = f"{PTS} - (C-)"
+        else:
+            PTS = f"{PTS} - (D)"
+
+        if PAS >= 90:
+            PAS = f"{PAS} - (A)"
+        elif PAS >= 80:
+            PAS = f"{PAS} - (B+)"
+        elif PAS >= 75:
+            PAS = f"{PAS} - (B-)"
+        elif PAS >= 70:
+            PAS = f"{PAS} - (C+)"
+        elif PAS >= 60:
+            PAS = f"{PAS} - (C-)"
+        else:
+            PAS = f"{PAS} - (D)"
+            
 
         self.db["StudentScore"][NISN][subject] = {
             "Nilai harian": NH,
