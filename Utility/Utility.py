@@ -153,3 +153,17 @@ class JKit:
           import json
           with open(file, "w") as f:
               json.dump(data, f, indent=2)
+
+class Header:
+    WIDTH = 30
+    @staticmethod
+    def H1(title):
+        title = title.center(Header.WIDTH - 2)
+
+        box = (
+            "╔" + "═" * (Header.WIDTH - 2) + "╗\n"
+            "║" + title + "║\n"
+            "╚" + "═" * (Header.WIDTH - 2) + "╝"
+        )
+
+        return box
