@@ -1,5 +1,5 @@
 import os
-from Utility.Utility import Color, Input, Center, Font
+from Utility.Utility import Color, Input, Center, Font, Header
 from Datamanager.DataEditor import StudentDataEditor
 from Datamanager.Graders import StudentScoreEditor
 
@@ -37,18 +37,19 @@ class Menu():
               TM = input("Pilih menu: ").strip().capitalize()
           
               if TM in ["1","Tambah siswa"]:
+                  print(Header.H1("\n\nTAMBAH SISWA"))
                   SDE = StudentDataEditor(DATA_PATH)
           
-                  name = Input.letter("nama: ").capitalize()
-                  age = Input.number("umur: ").strip()
-                  gender = Input.letter("jenis kelamin: ").capitalize()
+                  name = Input.letter(f"{Color.Yellow('[1/6]')} Nama: ").capitalize()
+                  age = Input.number("[2/6] Umur: ").strip()
+                  gender = Input.letter("[3/6] Jenis kelamin: ").capitalize()
                   while True:
                      if gender not in ["Laki laki","Perempuan"]:
-                          gender = Input.letter("Jenis kelamin: ").capitalize()
+                          gender = Input.letter("[3/6] Jenis kelamin: ").capitalize()
                      else:
-                          nisn = Input.number("NISN murid: ").strip()
-                          grade = Input.number("kelas: ").strip()
-                          subgrade = Input.letter(f"{grade} ruang: \n")
+                          nisn = Input.number("[4/6] NISN murid: ").strip()
+                          grade = Input.number("[5/6] Kelas: ").strip()
+                          subgrade = Input.letter(f"[6/6] {grade} Ruang: \n")
                   
                           SDE.add(grade, subgrade, name, age, gender, nisn)
                   
@@ -81,3 +82,4 @@ class Menu():
                   break
 
 Menu.MenuUtama()
+
