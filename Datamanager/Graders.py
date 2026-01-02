@@ -1,5 +1,5 @@
 from Datamanager.DataEditor import BaseManager
-
+from Utility.Utility import Color, Center, Font
 class StudentScoreEditor(BaseManager):
 
     def __init__(self, filepath):
@@ -16,21 +16,23 @@ class StudentScoreEditor(BaseManager):
     def SelectSubject(daftar):
         for i, p in enumerate(daftar, 1):
             print(f"{i}. {p}")
+        print("")
         return daftar[int(input("Pilih: ")) - 1]
+        print("")
 
     @staticmethod
     def InputScores():
         return (
-            float(input("NH: ")),
-            float(input("PTS: ")),
-            float(input("PAS: "))
+            float(input(f"{Color.Yellow('[2/4]')}NH: ")),
+            float(input(f"{Color.Yellow('[3/4]')}PTS: ")),
+            float(input(f"{Color.Yellow('[4/4]')}PAS: ")),
         )
 
     def AddSubjectScore(self, NISN, subject, NH, PTS, PAS, Final):
         NISN = str(NISN)
 
         if NISN not in self.db["StudentScore"]:
-            print("NISN tidak terdaftar, tambahkan siswa terlebih dahulu")
+            print(Color.Red(Center.text("NISN tidak terdaftar")))
             return
 
         if Final >= 90:
@@ -48,9 +50,9 @@ class StudentScoreEditor(BaseManager):
 
         if NH >= 90:
             NH = f"{NH} - (A)"
-        elif Final >= 80:
+        elif NH >= 80:
             NH = f"{NH} - (B+)"
-        elif Final >= 75:
+        elif NH >= 75:
             NH = f"{NH} - (B-)"
         elif NH >= 70:
             NH = f"{NH} - (C+)"
@@ -84,13 +86,13 @@ class StudentScoreEditor(BaseManager):
             PAS = f"{PAS} - (C-)"
         else:
             PAS = f"{PAS} - (D)"
-            
+
 
         self.db["StudentScore"][NISN][subject] = {
             "Nilai harian": NH,
             "Penilaian tengah semester(PTS)": PTS,
             "Penilian akhir semester(PAS)": PAS,
-            "Rata-rata nilai akhir": Final
+            "Nilai akhir": Final
         }
 
         self.save()
