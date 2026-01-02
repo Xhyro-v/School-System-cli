@@ -167,3 +167,32 @@ class Header:
         )
 
         return box
+
+class UI:
+    
+    WIDTH = 30
+    @staticmethod
+    def H1(title):
+        box = """\
+                                  ╔════════════════════╗
+                                  ║    TAMBAH SISWA    ║
+                                  ╚════════════════════╝
+"""
+        return Font.Bold(Center.text(box))
+    @staticmethod
+    def opening(title):
+        import os
+        try:
+            width = os.get_terminal_size().columns
+        except:
+            width = 80  
+
+        width = max(width, len(title) + 6)
+
+        top = "╔" + "═" * (width - 2) + "╗"
+        mid = "║" + title.center(width - 2) + "║"
+        bot = "╚" + "═" * (width - 2) + "╝"
+
+        print(Font.Bold(top))
+        print(Font.Bold(mid))
+        print(Font.Bold(bot))
