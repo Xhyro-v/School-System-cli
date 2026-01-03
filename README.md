@@ -1,52 +1,89 @@
-# School-System-cli📖
+Mini School System (CLI)
+A simple school management system built with Python — straight from the terminal, no fancy UI, just clean logic and real functionality.
+This project was created as a learning journey, not just to “make it work”, but to understand how data, logic, and user interaction come together in a real program.
 
-A command-line based school management system built with Python.
-This project is designed to simulate a simple school system, focusing on student data management and subject score processing using JSON files.
+✨ About This Project
+Mini School System is a command-line application that helps manage basic school data:
+Student information
+Student scores per subject
+Automatic final score calculation
+Data stored safely using JSON
+Everything runs in the terminal. Fast, lightweight, and focused.
+This project is perfect if you like:
+CLI-based programs
+Learning Python by building real stuff
+Understanding how systems work behind the scenes
 
-## Features
-- Add and manage student data (name, NISN, gender, class, etc.)
-- Store student data by grade and class
-- Select subjects from a predefined list
-- Input daily scores, midterm (PTS), and final exam (PAS)
-- Automatically calculate final subject scores
-- Save and load data using JSON files as a simple database
-- Menu-based interaction through the terminal (CLI)
+🚀 Features
+Add new students by grade and class
+Assign automatic attendance numbers
+Input student scores (NH, PTS, PAS)
+Automatic final score calculation
+Letter grading system (A – D)
+Clean terminal UI with colors and alignment
+Persistent data using JSON files
+No database. No frameworks. Just Python doing its job.
 
-## Project Structure
-- `Main.py`  
-  The main entry point of the application and menu controller.
+🗂 Project Structure
+Salin kode
 
-- `Datamanager/`  
-  Handles data processing and file management.
-  - `DataEditor.py` → student data and score storage
-  - `Graders.py` → score calculation and subject selection logic
+Mini-School-System/
+│
+├── Main.py                 # Main program & menu
+├── Datamanager/
+│   ├── DataEditor.py       # Student data manager
+│   └── Graders.py          # Score & grading logic
+│
+├── Utility/
+│   └── Utility.py          # Colors, UI, input validation
+│
+├── Datacenter/
+│   ├── Students.json       # Student data storage
+│   └── StudentsScore.json  # Student scores storage
+│
+└── README.md
+Everything is separated by responsibility, so the code stays readable and scalable.
 
-- `Datacenter/`  
-  Stores JSON data files.
-  - `Students.json`
-  - `StudentsScore.json`
+🧠 How It Works (Short Version)
+Students are stored by grade and class
+Each student has a unique NISN
+Scores are saved per subject
+Final score is calculated automatically:
+Salin kode
 
-## How to Run
-1. Make sure Python is installed
-2. Clone this repository
-3. Run the program:
-   ```bash
-   python Main.py
-Follow the instructions shown in the terminal
-Purpose
-This project was created to:
-Practice Python fundamentals (functions, classes, and file handling)
-Learn how to manage structured data using JSON
-Build a CLI-based application with real use cases
-Improve logical thinking and project organization
-Notes
-This project is still under development. Future improvements may include:
-Input validation
-Editing and deleting student data
-Average score and ranking calculation
-Better CLI navigation and UX
+Final = 40% NH + 30% PTS + 30% PAS
+Scores are converted into letter grades
+Simple logic, but realistic.
 
-Update how to use it and description every 5 days
+▶️ How To Run
+Make sure you have Python 3.x installed.
+Salin kode
+Bash
+python Main.py
+That’s it. No setup drama.
 
-Author
+🛠 Built With
+Python
+JSON (for data storage)
+Pure logic (no external libraries)
+
+📌 Why I Built This
+This project isn’t about being perfect.
+It’s about:
+Practicing clean logic
+Learning file-based data management
+Understanding how real systems are structured
+Building confidence by finishing something real
+Every feature here exists because it needed to exist.
+
+🔮 Future Ideas
+Student data editing
+Delete students or scores
+Export reports
+Better UI layout
+Authentication system
+Slowly but surely.
+
+👤 Author
 Naufal Azhar
+Student • Builder • Learning by doing
