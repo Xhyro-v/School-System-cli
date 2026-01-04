@@ -28,8 +28,6 @@ class Menu():
                 "Bahasa Daerah"
           ]
           
-          #print(Center.box("Mini School System"))
-          #print(Font.Italic(Center.text("By:Naufal\n")))
           UI.opening("MINI SCHOOL SYSTEM")
           print(Font.Italic(Center.text("Simple • Fast • Reliable")))
           print(Font.Italic(Center.text("By:Naufal Azhar")))
@@ -92,6 +90,9 @@ class Menu():
               elif TM in ["3","Keluar"] :
                   print(Color.Blue(Center.text("Program dimatikan")))
                   break
+
+              else:
+                    print(Color.Red(Center.text("Tidak valid")))
 
 Menu.MenuUtama()
             
